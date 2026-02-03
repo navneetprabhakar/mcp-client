@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: mcp-client
+  ai:
+    openai:
+      base-url: https://api.openai.com
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-4.1-nano
+          temperature: 0.7
+    chat:
+      client:
+        observations:
+          log-prompt: true
+          log-completion: true
+          include-error-logging: true
+    mcp:
+      client:
+        name: mcp-client
+        version: 1.0.0
+        toolcallback:
+          enabled: true
+        streamable-http:
+          connections:
+            server1:
+              url: http://localhost:8081/
