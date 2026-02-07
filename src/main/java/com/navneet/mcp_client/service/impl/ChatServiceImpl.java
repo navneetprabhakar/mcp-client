@@ -21,7 +21,8 @@ public class ChatServiceImpl implements ChatService {
   private final ChatClient chatClient;
 
   @Autowired
-  public ChatServiceImpl(OpenAiChatModel openAiChatModel, ToolCallbackProvider toolCallbackProvider){
+  public ChatServiceImpl(OpenAiChatModel openAiChatModel, ToolCallbackProvider toolCallbackProvider,
+                         TimeServiceImpl timeService){
     // Log all registered MCP tools
     Arrays.stream(toolCallbackProvider.getToolCallbacks())
         .forEach(
@@ -30,6 +31,7 @@ public class ChatServiceImpl implements ChatService {
             });
     this.chatClient=ChatClient.builder(openAiChatModel)
         .defaultToolCallbacks(toolCallbackProvider)
+        .defaultTools(timeService)
         .build();
   }
 

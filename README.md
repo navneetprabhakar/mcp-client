@@ -149,8 +149,20 @@ mcp-client/
 - **Spring AI 1.1.2**: AI integration layer
   - `spring-ai-starter-mcp-client`: MCP protocol support
   - `spring-ai-starter-model-openai`: OpenAI integration
+  - `@Tool` annotation support: Enables automatic tool discovery and invocation by AI models
 - **Lombok**: Reduces boilerplate code
 - **Spring Web**: RESTful API support
+
+## 📚 Service Components
+
+### ChatService
+Handles AI-powered chat interactions with MCP tool callbacks support.
+
+### TimeService
+Provides time and date utility functions exposed as tools to the AI model:
+- Get current time/date in various formats
+- Convert between different time representations (milliseconds, seconds, formatted strings)
+- All methods are annotated with `@Tool` for automatic Spring AI discovery
 
 ## 🐛 Troubleshooting
 
