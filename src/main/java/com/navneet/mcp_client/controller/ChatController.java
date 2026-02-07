@@ -25,8 +25,8 @@ public class ChatController {
    * @return ChatResponse containing the chat response.
    */
   @PostMapping("/stateless" )
-  public ChatResponse statelessChatWithToolCall(@RequestBody String message){
-    return chatService.statelessChatWithToolCall(message);
+  public String statelessChatWithToolCall(@RequestBody String message){
+    return chatService.statelessChatWithToolCall(message).getResponse();
   }
 
 
